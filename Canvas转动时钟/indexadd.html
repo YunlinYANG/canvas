@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -250px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+    var myCanvas=document.getElementById("myCanvas")
+    var ctx=myCanvas.getContext('2d')
+    ctx.strokeStyle='#00ffff';
+    ctx.lineWidth=17;
+    ctx.shadowBlur=15;
+    ctx.shadowColor='#00ffff';
+    function readerTime(){
+        var date=new Date();
+        var today=date.toLocaleDateString();
+        var h=date.getHours();
+        var m=date.getMinutes();
+        var s=date.getSeconds();
+        var ms=date.getMilliseconds();
+        var smoothsec = s +(ms/1000);
+        var smoothmin=m+(smoothsec/60);
+        gradient= ctx.createRadialGradient(250,250,5,250,250,300)
+        gradient.addColorStop(0,"#03303a");
+        gradient.addColorStop(1,"#000")
+        ctx.fillStyle=gradient;
+        ctx.fillRect(0,0,500,500)
+        ctx.beginPath();
+        ctx.arc(250,250,200,degToRad(270),degToRad((h*30)-90))
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(250, 250, 170, degToRad(270), degToRad((smoothmin * 6) - 90));
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(250, 250, 140, degToRad(270), degToRad((smoothsec * 6) - 90));
+        ctx.stroke();
+        ctx.font="25px Helvatica";
+        ctx.fillText(today,175,250);
+        ctx.font="25px Helvatica Bold"
+        ctx.fillStyle="rgba(0,255,255,1)";
+        var h = ('0' + h).slice(-2);
+        var m = ('0' + m).slice(-2);
+        var s = ('0' + s).slice(-2);
+        ctx.fillText(h + ':' + m + ':' + s + ':' + ms, 175, 280);
+    }
+    setInterval(readerTime,40);
+    function degToRad(degree){
+        var factor=Math.PI / 180;
+        return degree*factor;
+    }
+    
+    
+    </script>
+
+
+</body>
+</html>

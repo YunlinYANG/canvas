@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo">
+                
+                <span>学生管理</span>
+            </div>
+        </div>
+        <div class="left-menu">
+            <dl id="menu">
+                <dt>学生管理</dt>
+                <dd class="active" data-id="student-list">学生列表</dd>
+                <dd data-id="add-student">新增学生</dd>
+            </dl>
+        </div>
+        <div class="right-content">
+            <!-- 学生列表 -->
+            <div class="student-list content" id="student-list">
+                <div class="search">
+                    <label for="search-word">关键字搜索:</label>
+                    <input type="text" id="search-word">
+                    <button id="search-submit">搜索</button>
+                </div>
+                <table border="0">
+                    <!-- 表头区域 -->
+                    <thead>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>邮箱</th>
+                            <th>年龄</th>
+                            <th>手机号</th>
+                            <th>住址</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <!-- 表格内容 -->
+                    <tbody id="student-body">
+                       
+                    </tbody>
+                </table>
+                <ul id="turn-page">
+                   
+                </ul>
+                <div class="modal" id="modal">
+                    <div class="mask"></div>
+                    <div class="modal-content">
+                        <h2>编辑信息</h2>
+                        <form action="#" id="edit-student-form" class="add-student-form">
+                            <div>
+                                <label for="name">姓名</label>
+                                <input type="text" name="name" autocomplete="off">
+                            </div>
+                            <div class="sex">
+                                <label for="sex">性别</label>
+                                <input type="radio" name="sex" checked value="0">
+                                <span>男</span>
+                                <input type="radio" name="sex" value="1"><span>女</span>
+                            </div>
+                            <div>
+                                <label for="sNo">学号</label>
+                                <input type="text" name="sNo" readonly>
+                            </div>
+                            <div>
+                                <label for="email">邮箱</label>
+                                <input type="text" name="email">
+                            </div>
+                            <div>
+                                <label for="birth">出生年</label>
+                                <input type="text" name="birth">
+                            </div>
+                            <div>
+                                <label for="phone">手机号</label>
+                                <input type="text" name="phone">
+                            </div>
+                            <div>
+                                <label for="address">住址</label>
+                                <input type="text" name="address">
+                            </div>
+                            <div>
+                                <label for=""></label>
+                                <input type="submit" value="提交" class="btn" id="edit-submit">
+                                <input type="reset" value="重置" class="btn">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- 新增学生表单 -->
+            <div class="add-student content" id="add-student">
+                <form action="#" id="add-student-form"  class="add-student-form">
+                    <div>
+                        <label for="name">姓名</label>
+                        <input type="text" name="name" autocomplete="off">
+                    </div>
+                    <div class="sex">
+                        <label for="sex">性别</label>
+                        <input type="radio" name="sex" checked value="0">
+                        <span>男</span>
+                        <input type="radio" name="sex" value="1"><span>女</span>
+                    </div>
+                    <div>
+                        <label for="sNo">学号</label>
+                        <input type="text" id="sNo" name="sNo">
+                    </div>
+                    <div>
+                        <label for="email">邮箱</label>
+                        <input type="text" id="email" name="email">
+                    </div>
+                    <div>
+                        <label for="birth">出生年</label>
+                        <input type="text" id="birth" name="birth">
+                    </div>
+                    <div>
+                        <label for="phone">手机号</label>
+                        <input type="text" id="phone" name="phone">
+                    </div>
+                    <div>
+                        <label for="address">住址</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+                    <div>
+                        <label for=""></label>
+                        <input type="submit" value="提交" class="btn" id="add-submit">
+                        <input type="reset" value="重置" class="btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./jquery-3.3.1.js"></script>
+    <script src="./page/index.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
